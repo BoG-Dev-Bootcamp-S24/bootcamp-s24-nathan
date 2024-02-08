@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>BoG: Nathan's Info Card</title>
+    </head>
+    <body>
+        <div class="card">
+            <img src="./img/Headshot1.png" id="headshot">
+            <button id="alternatePicsButton" onclick="alternatePics()"></button>
+            <script> 
+            function alternatePics() {
+                if (document.getElementById("headshot").getAttribute('src') === "./img/Headshot1.png") {
+                    document.getElementById("headshot").setAttribute('src', "./img/Headshot2.png");
+                } else if (document.getElementById("headshot").getAttribute('src') === "./img/Headshot2.png") {
+                    document.getElementById("headshot").setAttribute('src', "./img/Headshot3.png");
+                } else {
+                    document.getElementById("headshot").setAttribute('src', "./img/Headshot1.png");
+                }
+            }
+            </script>
+
+            <div class="textbox">
+                <p>Hello there, my name is <strong>Nathan Dong</strong>. I'm a second-year <strong>CS Major</strong> 
+                    who transferred from the University of Connecticut. I have taken on multiple <strong>projects</strong> in which 
+                    I've worked in teams, attempting to create solutions for problems in our community. On the weekends I also enjoy
+                    <strong>mentoring</strong> kids in my neighborhood, which includes reading books and taking them on trips. 
+                    Other hobbies include Netflix, weightlifting, and badminton. I'm from The Big Apple! 🍎
+                 </p>
+            </div>
+        </div>
+    </body>
+</html>
