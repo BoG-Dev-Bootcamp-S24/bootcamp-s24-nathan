@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {/* <TodoList /> */}
-      <TodoListSolution />
+      <TodoList/>
     </div>
   );
 }
