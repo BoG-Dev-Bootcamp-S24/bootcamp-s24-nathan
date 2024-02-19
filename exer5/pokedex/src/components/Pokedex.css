@@ -1,14 +1,27 @@
 .columns {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     .leftColumn {
         width: 40%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+
         background-color: aquamarine;
+
+        .name {
+            width: 60%;
+            border: solid black 1px;
+            border-radius: 10px;
+        }
     }
 
     .rightColumn {
         width: 40%;
         background-color: royalblue;
     }
+
+
 }

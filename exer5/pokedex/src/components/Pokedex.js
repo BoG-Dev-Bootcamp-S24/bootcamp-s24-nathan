@@ -19,7 +19,10 @@ function Pokedex() {
             <h1 class='heading'>PokeDex</h1>
             <div class='columns'>
                 <div class='leftColumn'>
-                    <p>h</p>
+                    <div class='name'>
+                        <p>{name}</p>
+                    </div>
+                    {/* <img src=""/> */}
                 </div>
                 <div class='rightColumn'>
                     <p>h</p>
