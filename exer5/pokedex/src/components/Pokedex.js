@@ -8,6 +8,7 @@ function Pokedex() {
     const [index, setIndex] = useState(1);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [infoPanel, setInfoPanel] = useState(true);
 
     const IncreaseIndex = () => {
         setIndex(index + 1)
@@ -15,6 +16,14 @@ function Pokedex() {
 
     const DecreaseIndex = () => {
         setIndex(index - 1)
+    }
+
+    const OpenInfo = () => {
+        setInfoPanel(true)
+    }
+
+    const OpenMoves = () => {
+        setInfoPanel(false)
     }
 
     async function fetchPokemonByIndex()  {
@@ -35,61 +44,59 @@ function Pokedex() {
         let color = "gray";
         switch (type) {
             case 'bug':
-                color = "green"
+                color = "#A6B91A"
                 break;
             case 'dark':
-                color = "darkslategray"
+                color = "#705746"
                 break;
             case 'dragon':
-                color = "purple"
+                color = "#6F35FC"
                 break;
             case 'electric':
-                color = "yellow"
+                color = "#F7D02C"
                 break;
             case 'fairy':
-                color = "pink"
+                color = "#D685AD"
                 break;
             case 'fighting':
-                color = "brown"
+                color = "#C22E28"
                 break;
             case 'fire':
-                color = "orange"
+                color = "#EE8130"
                 break;
             case 'flying':
-                color = "lightblue"
+                color = "#A98FF3"
                 break;
             case 'ghost':
-                color = "magenta"
+                color = "#735797"
                 break;
             case 'grass':
-                color = "lightgreen"
+                color = "#7AC74C"
                 break;
-            case 'groud':
-                color = "burlywood"
+            case 'ground':
+                color = "#E2BF65"
                 break;
             case 'ice':
-                color = "cyan"
+                color = "#96D9D6"
                 break;
             case 'normal':
-                color = "lightgray"
+                color = "#A8A77A"
                 break;
             case 'poison':
-                color = "violet"
+                color = "#A33EA1"
                 break;
             case 'psychic':
-                color = "lightpink"
+                color = "#F95587"
                 break;
             case 'rock':
-                color = "darkkhaki"
+                color = "#B6A136"
                 break;
             case 'steel':
-                color = "darkgray"
+                color = "#B7B7CE"
                 break;
             case 'water':
-                color = "royalblue"
+                color = "#6390F0"
                 break;
-            default:
-              color = "gray"
           }
         return color;
     }
@@ -132,13 +139,32 @@ function Pokedex() {
                                 (<div class='type' style={{backgroundColor: getColor(3)}}>{data.types[3].type.name}</div>))}
                         </div>
                     </div>
-                    <div class='buttons'>
+                    <div class='indexButtons'>
                         <button class="button2" onClick={DecreaseIndex}><img src={arrowImage} class="leftArrow"/></button>
                         <button class="button2" onClick={IncreaseIndex}><img src={arrowImage} class="rightArrow"/></button>
                     </div>
                 </div>
                 <div class='rightColumn'>
-                    <p>h</p>
+                    {infoPanel ? <h2 class='infoMoves'>Info</h2> : <h2>Moves</h2>}
+                    {infoPanel ? (data && (
+                    <div class='infoMovesPanel'>
+                        <div>Height: {data.height/10}m</div>
+                        <div>Weigh: {data.weight/10}kg</div>
+                        <div>HP: {data.stats[0].base_stat}</div>
+                        <div>Attack: {data.stats[1].base_stat}</div>
+                        <div>Defense: {data.stats[2].base_stat}</div>
+                        <div>Special-Attack: {data.stats[3].base_stat}</div>
+                        <div>Special-Defense: {data.stats[4].base_stat}</div>
+                        <div>Speed: {data.stats[5].base_stat}</div>
+                    </div>
+                    )) : (data && (
+                    <div class='infoMovesPanel'>
+                        
+                    </div>))}
+                    <div class='infoMovesButtons'>
+                        <button class="button3" onClick={OpenInfo}>Info</button>
+                        <button class="button3" onClick={OpenMoves}>Moves</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -58,7 +58,7 @@
             }
         }
 
-        .buttons {
+        .indexButtons {
             width: 40%;
             height: 8%;
             display: flex;
@@ -80,13 +80,29 @@
                     opacity: 80%;
                 }
             }
-    
-
         }
     }
 
     .rightColumn {
         width: 40%;
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+
         background-color: royalblue;
+
+        .infoMovesPanel {
+            width: 60%;
+            height: 70%;
+            background-color: lightgray;
+            font-size: larger;
+            padding: 5%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
     }
 }
