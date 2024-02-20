@@ -15,7 +15,9 @@ function Pokedex() {
     }
 
     const DecreaseIndex = () => {
-        setIndex(index - 1)
+        if (index > 1) {
+            setIndex(index - 1)
+        }
     }
 
     const OpenInfo = () => {
@@ -101,9 +103,8 @@ function Pokedex() {
         return color;
     }
 
-    function getMoves() {
-        const moves = data.moves.map((move) => move.move.name)
-        return moves
+    function selectedButton(i) {
+        return i ? "lightgreen" : "ButtonFace"
     }
 
     useEffect(() => {
@@ -133,7 +134,14 @@ function Pokedex() {
                     
                     <div class='typesbox'>
                         <div>Types:</div>
-                        <div class='typesboxInner'>
+                        {data && (
+                            <div class='typesboxInner'>
+                                {data && data.types.map((move, i) => 
+                            <div class='type' style={{backgroundColor: getColor(i)}}>{data.types[i].type.name}</div>
+                            )} </div> 
+                        )}
+
+                        {/* <div class='typesboxInner'>
                             {data && (data.types[0] && 
                                 (<div class='type' style={{backgroundColor: getColor(0)}}>{data.types[0].type.name}</div>))}
                             {data && (data.types[1] && 
@@ -142,7 +150,7 @@ function Pokedex() {
                                 (<div class='type' style={{backgroundColor: getColor(2)}}>{data.types[2].type.name}</div>))}
                             {data && (data.types[3] && 
                                 (<div class='type' style={{backgroundColor: getColor(3)}}>{data.types[3].type.name}</div>))}
-                        </div>
+                        </div> */}
                     </div>
                     <div class='indexButtons'>
                         <button class="button2" onClick={DecreaseIndex}><img src={arrowImage} class="leftArrow"/></button>
@@ -169,8 +177,10 @@ function Pokedex() {
                     )}
                     </div>))}
                     <div class='infoMovesButtons'>
-                        <button class="button3" onClick={OpenInfo}>Info</button>
-                        <button class="button3" onClick={OpenMoves}>Moves</button>
+                        <button class="button3" onClick={OpenInfo} 
+                            style={{backgroundColor: selectedButton(infoPanel)}}>Info</button>
+                        <button class="button3" onClick={OpenMoves} 
+                            style={{backgroundColor: selectedButton(!infoPanel)}}>Moves</button>
                     </div>
                 </div>
             </div>
