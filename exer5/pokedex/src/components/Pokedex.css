@@ -1,11 +1,14 @@
 .columns {
+    margin: 0px;
+    height: 70vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
     .leftColumn {
         width: 40%;
+        height: 100%;
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: column nowrap;
         justify-content: space-around;
         align-items: center;
 
@@ -13,8 +16,51 @@
 
         .name {
             width: 60%;
+            font-size: 200%;
             border: solid black 1px;
             border-radius: 10px;
+            background-color: lightgray;
+        }
+
+        .imagebox {
+            width: 60%;
+            aspect-ratio: 1;
+            border: solid black 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .image {
+                width: 70%;
+            }
+        }
+        
+
+
+        .buttons {
+            width: 60%;
+            height: 8%;
+            display: flex;
+            justify-content: space-between;
+            
+            .button2 {
+                width: 45%;
+                height: 100%;
+                border-radius: 5px;
+
+                .leftArrow {
+                    width: 20%;
+                    opacity: 80%;
+                }
+        
+                .rightArrow {
+                    transform: scaleX(-1);
+                    width: 20%;
+                    opacity: 80%;
+                }
+            }
+    
+
         }
     }
 
@@ -22,6 +68,4 @@
         width: 40%;
         background-color: royalblue;
     }
-
-
 }
