@@ -101,6 +101,11 @@ function Pokedex() {
         return color;
     }
 
+    function getMoves() {
+        const moves = data.moves.map((move) => move.move.name)
+        return moves
+    }
+
     useEffect(() => {
         fetchPokemonByIndex();
       }, [index]);
@@ -158,8 +163,10 @@ function Pokedex() {
                         <div>Speed: {data.stats[5].base_stat}</div>
                     </div>
                     )) : (data && (
-                    <div class='infoMovesPanel'>
-                        
+                        <div class='infoMovesPanel'>
+                        {data && data.moves.map((move) => 
+                        <div>{move.move.name}</div>
+                    )}
                     </div>))}
                     <div class='infoMovesButtons'>
                         <button class="button3" onClick={OpenInfo}>Info</button>
