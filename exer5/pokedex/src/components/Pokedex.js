@@ -30,6 +30,70 @@ function Pokedex() {
         setLoading(false);
     };
 
+    function getColor(i) {
+        const type = data.types[i].type.name;
+        let color = "gray";
+        switch (type) {
+            case 'bug':
+                color = "green"
+                break;
+            case 'dark':
+                color = "darkslategray"
+                break;
+            case 'dragon':
+                color = "purple"
+                break;
+            case 'electric':
+                color = "yellow"
+                break;
+            case 'fairy':
+                color = "pink"
+                break;
+            case 'fighting':
+                color = "brown"
+                break;
+            case 'fire':
+                color = "orange"
+                break;
+            case 'flying':
+                color = "lightblue"
+                break;
+            case 'ghost':
+                color = "magenta"
+                break;
+            case 'grass':
+                color = "lightgreen"
+                break;
+            case 'groud':
+                color = "burlywood"
+                break;
+            case 'ice':
+                color = "cyan"
+                break;
+            case 'normal':
+                color = "lightgray"
+                break;
+            case 'poison':
+                color = "violet"
+                break;
+            case 'psychic':
+                color = "lightpink"
+                break;
+            case 'rock':
+                color = "darkkhaki"
+                break;
+            case 'steel':
+                color = "darkgray"
+                break;
+            case 'water':
+                color = "royalblue"
+                break;
+            default:
+              color = "gray"
+          }
+        return color;
+    }
+
     useEffect(() => {
         fetchPokemonByIndex();
       }, [index]);
@@ -58,10 +122,14 @@ function Pokedex() {
                     <div class='typesbox'>
                         <div>Types:</div>
                         <div class='typesboxInner'>
-                            {data && (data.types[0] && (<div class='type'>{data.types[0].type.name}</div>))}
-                            {data && (data.types[1] && (<div class='type'>{data.types[1].type.name}</div>))}
-                            {data && (data.types[2] && (<div class='type'>{data.types[2].type.name}</div>))}
-                            {data && (data.types[3] && (<div class='type'>{data.types[3].type.name}</div>))}
+                            {data && (data.types[0] && 
+                                (<div class='type' style={{backgroundColor: getColor(0)}}>{data.types[0].type.name}</div>))}
+                            {data && (data.types[1] && 
+                                (<div class='type' style={{backgroundColor: getColor(1)}}>{data.types[1].type.name}</div>))}
+                            {data && (data.types[2] && 
+                                (<div class='type' style={{backgroundColor: getColor(2)}}>{data.types[2].type.name}</div>))}
+                            {data && (data.types[3] && 
+                                (<div class='type' style={{backgroundColor: getColor(3)}}>{data.types[3].type.name}</div>))}
                         </div>
                     </div>
                     <div class='buttons'>
