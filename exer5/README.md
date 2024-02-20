@@ -1,4 +1,10 @@
 # Exercise 5 — Mini Pokédex
+## Submitted Video Link
+https://drive.google.com/file/d/1vr9OY75yI-E-J-cfHPc3TIoeKYxFOsLK/view
+
+
+
+
 ## Description
 In this project, you'll be creating a frontend that graphically displays Pokémon information (similiar to a Pokédex). To fetch all the necessary information, you'll be working with the [PokeAPI](https://pokeapi.co/docs/v2#pokemon).
 
