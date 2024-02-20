@@ -40,11 +40,11 @@ function Pokedex() {
             <div class='columns'>
                 <div class='leftColumn'>
                     {loading ? (
-                            <div class='name'>Loading...</div>
+                            <div class='imagebox'>Loading...</div>
                         ) : data ? (
                             <div class='imagebox'><img src={data.sprites.other['official-artwork'].front_default} class='image'/></div>
                         ) : (
-                            <div class='name'>Error fetching data</div>
+                            <div class='imagebox'>Error fetching data</div>
                         )
                     }
                     {loading ? (
@@ -54,9 +54,15 @@ function Pokedex() {
                         ) : (
                         <div class='name'>Error fetching data</div>
                     )}
-                    <div>
-                        <p>Types:</p>
-                        {}
+                    
+                    <div class='typesbox'>
+                        <div>Types:</div>
+                        <div class='typesboxInner'>
+                            {data && (data.types[0] && (<div class='type'>{data.types[0].type.name}</div>))}
+                            {data && (data.types[1] && (<div class='type'>{data.types[1].type.name}</div>))}
+                            {data && (data.types[2] && (<div class='type'>{data.types[2].type.name}</div>))}
+                            {data && (data.types[3] && (<div class='type'>{data.types[3].type.name}</div>))}
+                        </div>
                     </div>
                     <div class='buttons'>
                         <button class="button2" onClick={DecreaseIndex}><img src={arrowImage} class="leftArrow"/></button>
