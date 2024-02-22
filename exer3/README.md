@@ -1,5 +1,8 @@
 # Exercise 3 - Frontend Practice
 
+## Submission Video
+https://drive.google.com/file/d/1PSalQH7aY02QnqrMS161u501_HYPYaaE/view
+
 ## Description
 In this exercise, bootcampers will familiarize themselves with flexbox, padding, and margins.
 
