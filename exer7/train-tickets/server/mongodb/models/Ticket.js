@@ -10,7 +10,8 @@ const ticketSchema = new mongoose.Schema({
         required : true,
     },
     userID : {
-        ref : "User",
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User',
         required : true,
     }
 })
