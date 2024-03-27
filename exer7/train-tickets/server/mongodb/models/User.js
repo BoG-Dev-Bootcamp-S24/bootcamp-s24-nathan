@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
         type : Number,
         required: false,
     }
+    
 })
 
 export default mongoose.models?.User || mongoose.model("User", userSchema)

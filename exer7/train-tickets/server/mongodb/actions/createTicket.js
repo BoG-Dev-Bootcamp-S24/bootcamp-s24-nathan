@@ -16,6 +16,7 @@ export default async function createTicket(data) {
 
         
         userID = new mongoose.Types.ObjectId(userID);
+        console.log(userID)
         const modifiedData = {lineColor, station, userID}
 
         const ticket = new Ticket(modifiedData);

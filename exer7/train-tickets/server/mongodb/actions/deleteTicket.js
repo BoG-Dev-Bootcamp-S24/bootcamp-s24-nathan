@@ -7,6 +7,7 @@ export default async function deleteTicket(data) {
         await connectDB()
         const { ObjectID } = data
         console.log(ObjectID)
+
         const x = await Ticket.findByIdAndDelete(ObjectID);
         if (!x) {
             console.log('Document not found.');
