@@ -6,9 +6,18 @@ export default async function deleteTicket(data) {
     try {
         await connectDB()
         const { ObjectID } = data
-        await Ticket.findByIdAndDelete(ObjectID)
+        console.log(ObjectID)
+        const x = await Ticket.findByIdAndDelete(ObjectID);
+        if (!x) {
+            console.log('Document not found.');
+            return 0
+        } else {
+            console.log('Deleted Document:', x);
+            return 1
+        }
+
     } catch (e) {
         console.log(e)
-        throw new Error("Unable to delete ticket. Invalid data or database issue.")
+        return 2;
     }
 }

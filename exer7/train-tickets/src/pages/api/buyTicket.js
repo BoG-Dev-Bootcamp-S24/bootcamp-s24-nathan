@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
         if (await createTicket(req.body)) {
             return res.status(200).send("Ticket created")
-        } else {
+        } else  {
             return res.status(500).send("Unable to create ticket. Invalid data or database issue.")
         }
         
