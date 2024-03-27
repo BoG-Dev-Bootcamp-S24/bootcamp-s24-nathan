@@ -3,6 +3,7 @@ import readTicketsByUser from "../../../server/mongodb/actions/readTicketsByUser
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         const x = await readTicketsByUser(req.query)
+        console.log(x)
         if (x === 0) {
             return res.status(400).send("User not found")
         } else if (x === 2) {
